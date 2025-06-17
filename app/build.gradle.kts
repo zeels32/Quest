@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.product.demo"
+    namespace = "com.quests.demo"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.product.demo"
+        applicationId = "com.quests.demo"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -19,7 +19,8 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "BASE_URL", "\"https://dummyjson.com/\"")
+        buildConfigField("String", "PRODUCT_BASE_URL", "\"https://dummyjson.com/\"")
+        buildConfigField("String", "EVENT_BASE_URL", "\"https://jsonplaceholder.typicode.com\"")
 
     }
 

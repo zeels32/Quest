@@ -1,0 +1,24 @@
+package com.quests.demo.events.domain.usecase
+
+import com.quests.demo.events.domain.model.Event
+import com.quests.demo.events.domain.repository.EventRepository
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
+
+@OptIn(ExperimentalCoroutinesApi::class)
+class FetchEventsUseCase @Inject constructor(
+    private val eventRepository: EventRepository
+) {
+
+
+    operator fun invoke(): Flow<Result<List<Event>>> {
+
+        return flow {
+            emit(eventRepository.fetchEvents())
+        }
+
+    }
+
+}
