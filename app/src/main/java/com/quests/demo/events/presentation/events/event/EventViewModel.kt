@@ -12,7 +12,6 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
-import retrofit2.HttpException
 import javax.inject.Inject
 
 @HiltViewModel
@@ -42,12 +41,7 @@ class EventViewModel @Inject constructor(
             emit(EventUiState.Loading)
         }
         .catch { e ->
-            val message = if (e is HttpException) {
-                "No Internet Connection"
-            } else {
-                e.message ?: "An unexpected error occurred"
-            }
-            emit(EventUiState.Error(Exception(message)))
+            emit(EventUiState.Error(Exception(e.message)))
         }
         .stateIn(
             scope = viewModelScope,
