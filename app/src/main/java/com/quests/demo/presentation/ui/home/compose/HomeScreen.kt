@@ -27,14 +27,14 @@ fun HomeScreen(
             modifier = Modifier.fillMaxWidth(),
             onClick = navigateToEvent
         ) {
-            Text(text = "Event")
+            Text(text = "Quest 1")
         }
 
         Button(
             onClick = navigateToProduct,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text(text = "Product")
+            Text(text = "Quest 2")
         }
     }
 
