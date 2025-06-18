@@ -2,13 +2,16 @@ package com.quests.demo.events.presentation.ui.events.event
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.quests.demo.di.QuestIoDispatcher
 import com.quests.demo.events.data.mapper.toEventUiModel
 import com.quests.demo.events.domain.usecase.FetchEventsUseCase
 import com.quests.demo.events.presentation.ui.events.event.model.EventUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
@@ -16,11 +19,13 @@ import javax.inject.Inject
 
 @HiltViewModel
 class EventViewModel @Inject constructor(
-    private val fetchEventsUseCase: FetchEventsUseCase
+    private val fetchEventsUseCase: FetchEventsUseCase,
+    @QuestIoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
 
     val eventUiState: StateFlow<EventUiState> = fetchEventsUseCase.invoke()
+        .flowOn(ioDispatcher)
         .map { events ->
             if (events.isSuccess) {
                 val eventList = events.getOrNull()
