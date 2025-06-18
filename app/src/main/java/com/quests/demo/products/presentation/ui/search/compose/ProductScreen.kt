@@ -16,7 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.quests.demo.events.presentation.events.components.TitleBar
+import com.quests.demo.events.presentation.ui.events.components.TitleBar
 import com.quests.demo.products.presentation.ui.search.ProductSearchViewModel
 import com.quests.demo.products.presentation.ui.search.model.product.ProductUiState
 

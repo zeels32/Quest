@@ -5,9 +5,9 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.quests.demo.events.presentation.events.event.compose.EventScreen
-import com.quests.demo.events.presentation.events.event.model.EventUiModel
-import com.quests.demo.events.presentation.events.event_detail.compose.EventDetailScreen
+import com.quests.demo.events.presentation.ui.events.event.compose.EventScreen
+import com.quests.demo.events.presentation.ui.events.event.model.EventUiModel
+import com.quests.demo.events.presentation.ui.events.event_detail.compose.EventDetailScreen
 import com.quests.demo.presentation.ui.home.compose.HomeScreen
 import com.quests.demo.presentation.util.fromJson
 import com.quests.demo.presentation.util.toJson

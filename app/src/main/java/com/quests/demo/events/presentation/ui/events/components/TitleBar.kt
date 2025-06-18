@@ -1,4 +1,4 @@
-package com.quests.demo.events.presentation.events.components
+package com.quests.demo.events.presentation.ui.events.components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth

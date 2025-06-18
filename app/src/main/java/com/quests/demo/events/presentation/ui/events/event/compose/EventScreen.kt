@@ -1,4 +1,4 @@
-package com.quests.demo.events.presentation.events.event.compose
+package com.quests.demo.events.presentation.ui.events.event.compose
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -19,10 +19,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.quests.demo.events.presentation.events.components.TitleBar
-import com.quests.demo.events.presentation.events.event.EventViewModel
-import com.quests.demo.events.presentation.events.event.model.EventUiModel
-import com.quests.demo.events.presentation.events.event.model.EventUiState
+import com.quests.demo.events.presentation.ui.events.components.TitleBar
+import com.quests.demo.events.presentation.ui.events.event.EventViewModel
+import com.quests.demo.events.presentation.ui.events.event.model.EventUiModel
+import com.quests.demo.events.presentation.ui.events.event.model.EventUiState
 
 @Composable
 fun EventScreen(

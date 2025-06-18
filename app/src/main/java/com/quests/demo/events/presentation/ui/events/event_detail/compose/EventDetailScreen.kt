@@ -1,4 +1,4 @@
-package com.quests.demo.events.presentation.events.event_detail.compose
+package com.quests.demo.events.presentation.ui.events.event_detail.compose
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,8 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.quests.demo.events.presentation.events.components.TitleBar
-import com.quests.demo.events.presentation.events.event.model.EventUiModel
+import com.quests.demo.events.presentation.ui.events.components.TitleBar
+import com.quests.demo.events.presentation.ui.events.event.model.EventUiModel
 
 @Composable
 fun EventDetailScreen(eventUiModel: EventUiModel, onBack: () -> Unit) {

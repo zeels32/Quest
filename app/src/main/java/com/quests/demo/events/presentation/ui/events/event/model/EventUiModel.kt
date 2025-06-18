@@ -1,4 +1,4 @@
-package com.quests.demo.events.presentation.events.event.model
+package com.quests.demo.events.presentation.ui.events.event.model
 
 sealed interface EventUiState {
     data object Loading : EventUiState

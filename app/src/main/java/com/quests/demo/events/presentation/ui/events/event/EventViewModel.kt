@@ -1,10 +1,10 @@
-package com.quests.demo.events.presentation.events.event
+package com.quests.demo.events.presentation.ui.events.event
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.quests.demo.events.data.mapper.toEventUiModel
 import com.quests.demo.events.domain.usecase.FetchEventsUseCase
-import com.quests.demo.events.presentation.events.event.model.EventUiState
+import com.quests.demo.events.presentation.ui.events.event.model.EventUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow

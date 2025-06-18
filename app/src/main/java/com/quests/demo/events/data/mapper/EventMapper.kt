@@ -2,7 +2,7 @@ package com.quests.demo.events.data.mapper
 
 import com.quests.demo.events.data.remote.model.EventResponse
 import com.quests.demo.events.domain.model.Event
-import com.quests.demo.events.presentation.events.event.model.EventUiModel
+import com.quests.demo.events.presentation.ui.events.event.model.EventUiModel
 
 
 fun EventResponse.toDomainModel(): List<Event> {
