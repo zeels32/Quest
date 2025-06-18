@@ -34,4 +34,25 @@ class EventRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun fetchEventDetail(id: Int): Result<Event> {
+        return runCatching {
+            val response = eventService.fetchEventsDetailAsync(id)
+            if (response.isSuccessful) {
+                val event = response.body()
+                Result.success(event?.toDomainModel() ?: throw Exception("Event not found"))
+            } else {
+                Result.failure(Exception("Error fetching event detail: ${response.message()}"))
+            }
+        }.getOrElse { exception ->
+            when (exception) {
+                is UnknownHostException -> {
+                    Result.failure(NoInternetException(message = "No Internet Connection"))
+                }
+                else -> {
+                    Result.failure(Exception("An unexpected error occurred"))
+                }
+            }
+        }
+    }
+
 }

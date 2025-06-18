@@ -6,17 +6,14 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.quests.demo.events.presentation.ui.events.event.compose.EventScreen
-import com.quests.demo.events.presentation.ui.events.event.model.EventUiModel
 import com.quests.demo.events.presentation.ui.events.event_detail.compose.EventDetailScreen
 import com.quests.demo.presentation.ui.home.compose.HomeScreen
-import com.quests.demo.presentation.util.fromJson
-import com.quests.demo.presentation.util.toJson
 import com.quests.demo.products.presentation.ui.search.compose.ProductScreen
 
 enum class Screens(val type: String) {
     HOME("home"),
     EVENT("event"),
-    EVENT_DETAIL("eventDetail/{event}"),
+    EVENT_DETAIL("eventDetail/{id}"),
     PRODUCT("product"),
 }
 
@@ -64,7 +61,7 @@ fun AppNavHost(
             // Event Screen Composable
             EventScreen(
                 onItemClick = {
-                    navController.navigate(NavigationItem.EventDetail.route.replace("{event}", it.toJson()))
+                    navController.navigate(NavigationItem.EventDetail.route.replace("{id}", it.id.toString()))
                 },
                 onBack = {
                     navController.popBackStack()
@@ -76,12 +73,10 @@ fun AppNavHost(
             route = NavigationItem.EventDetail.route,
         ) {
 
-            it.arguments?.getString("event").takeIf { it?.isEmpty()?.not() == true }.let { eventJson ->
+            it.arguments?.getString("id").takeIf { it?.isEmpty()?.not() == true }.let { eventJson ->
                 eventJson?.let { json ->
-                    val event = json.fromJson<EventUiModel>(json)
 
                     EventDetailScreen(
-                        eventUiModel = event,
                         onBack = {
                             navController.popBackStack()
                         }

@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class EventViewModel @Inject constructor(
-    private val fetchEventsUseCase: FetchEventsUseCase,
+    private val fetchEventsUseCase: FetchEventsUseCase
 ) : ViewModel() {
 
 
